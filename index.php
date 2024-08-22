@@ -2,16 +2,16 @@
 session_start();
 
 require_once "cursos/clases/conexion.php";
-$obj= new conectar();
-$conexion=$obj->conexion();
+$obj = new conectar();
+$conexion = $obj->conexion();
 
 if (isset($_SESSION['user_id'])) {
   $id = $_SESSION['user_id'];
   $tildes = $conexion->query("SET NAMES 'utf8'");
-  $sql="SELECT id, nombres, apellidos, tipodocumento, documento, tipoPoblacion, email, password, 
-  fechaRegistro, rol, fecha_sesion, telefono, fechaNacimiento, municipio, sexo, img, centro 
-  FROM users WHERE id = $id";
-  $result_login = mysqli_fetch_row(mysqli_query($conexion,$sql));
+  $sql = "SELECT id, nombres, apellidos, tipodocumento, documento, tipoPoblacion, email, password, 
+fechaRegistro, rol, fecha_sesion, telefono, fechaNacimiento, municipio, sexo, img, centro 
+FROM users WHERE id = $id";
+  $result_login = mysqli_fetch_row(mysqli_query($conexion, $sql));
   $user = null;
 
   if (count($result_login) > 0) {
@@ -23,6 +23,7 @@ $nombre_carpeta = "cursos";
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -32,7 +33,7 @@ $nombre_carpeta = "cursos";
   <meta property="og:title" content="Inicio | Oferta Complementaria">
   <meta name="csrf-param" content="authenticity_token" />
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-  
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -42,53 +43,54 @@ $nombre_carpeta = "cursos";
   <link rel="stylesheet" media="screen" href="assets/grupos.css" />
   <script src="assets/general.js" data-turbolinks-track="reload"></script>
   <style type="text/css">
-  .footer_new {
-    bottom: 0;
-    text-align: center;
-    font-size: 15px;
-    width: 100%;
-    height: 50px; /* Set the fixed height of the footer here */
-    line-height: 44px; /* Vertically center the text there */
-    background-color: green;
-    color: white;
-  }
-  .modal {
-  text-align: center;
-  padding: 0!important;
-}
+    .footer_new {
+      bottom: 0;
+      text-align: center;
+      font-size: 15px;
+      width: 100%;
+      height: 50px;
+      /* Set the fixed height of the footer here */
+      line-height: 44px;
+      /* Vertically center the text there */
+      background-color: green;
+      color: white;
+    }
 
-.modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -4px;
-}
+    .modal {
+      text-align: center;
+      padding: 0 !important;
+    }
 
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-}
+    .modal:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -4px;
+    }
 
+    .modal-dialog {
+      display: inline-block;
+      text-align: left;
+      vertical-align: middle;
+    }
+  </style>
 
-</style>
-
-<script>
-  $( document ).ready(function() {
-    $('#exampleModalCenter').modal('toggle')
-});
-
+  <script>
+    $(document).ready(function() {
+      $('#exampleModalCenter').modal('toggle')
+    });
   </script>
 </head>
+
 <body>
-<?php include "header.php" ?>
-    <div class="container down">
+  <?php include "header.php" ?>
+  <div class="container down">
 
 
-     <main class="contentContainer">
+    <main class="contentContainer">
 
-       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -174,7 +176,7 @@ $nombre_carpeta = "cursos";
           <div class="cardHomeContentDescription">
             <div class="description" style="font-size:17px;">
               <p>Fomentar la cultura del emprendimiento identificando oportunidades e ideas de negocio con valores diferenciales impulsando y fortaleciendo el desarrollo empresarial para la generación de ingresos y el empleo formal y decente. Acompañamos a los emprendedores en la creación y puesta en marcha de sus empresas. <br>
-              Con nuestra asesoría los emprendedores podran: identificar modelos de negocio, formulación de plan de negocio, creación de empresa, asesoría en la fase inicial, diagnóstico empresarial, desarrollo de nuevos productos, encadenamientos productivos y gestión para acceder a fuentes de financiación.</p>
+                Con nuestra asesoría los emprendedores podran: identificar modelos de negocio, formulación de plan de negocio, creación de empresa, asesoría en la fase inicial, diagnóstico empresarial, desarrollo de nuevos productos, encadenamientos productivos y gestión para acceder a fuentes de financiación.</p>
             </div>
             <div class="button">
               <a href="emprendimiento.php" class="Link">Inscribirse</a>
@@ -206,34 +208,28 @@ $nombre_carpeta = "cursos";
     </main>
   </div>
 
-
-  
-
-  
- 
-      
-
   <footer class="footer_new">
     <div class="container">
-      <span class="">Todos los derechos <?php echo '&copy'; echo date("Y"); ?>  SENA - Políticas de privacidad y condiciones uso Portal Web SENA</span>
+      <span class="">Todos los derechos <?php echo '&copy';
+                                        echo date("Y"); ?> SENA - Políticas de privacidad y condiciones uso Portal Web SENA</span>
     </div>
   </footer>
+
   <script>
     var dummyContent = $('.dummy-content').children(),
-    i;
+      i;
 
 
-    $('#add-content').click(function(e){
+    $('#add-content').click(function(e) {
       e.preventDefault();
 
-      if($(dummyContent[0]).is(":visible")){
-        for(i=0;i<dummyContent.length;i++){
+      if ($(dummyContent[0]).is(":visible")) {
+        for (i = 0; i < dummyContent.length; i++) {
           $(dummyContent[i]).fadeOut(600);
         }
-      }
-      else{
-        for(i=0;i<dummyContent.length;i++){
-          $(dummyContent[i]).delay(600*i).fadeIn(600);
+      } else {
+        for (i = 0; i < dummyContent.length; i++) {
+          $(dummyContent[i]).delay(600 * i).fadeIn(600);
         }
       }
 

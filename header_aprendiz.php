@@ -41,7 +41,7 @@
             </li> 
             <li class="menu">
             
-                <a href="./vivuWeb/cursosReg.php">
+                <a href="cursosReg.php">
                   <i class="fa fa-list-ul fa-fw hidden-md hidden-lg" aria-hidden="true"></i> CURSOS
                 </a>
              
