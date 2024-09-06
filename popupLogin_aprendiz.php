@@ -5,7 +5,7 @@
 
 <?php
 
-// include "./vivuWeb/conexion1.php";
+include "conexion1.php";
 
 //session_start();
 
@@ -17,7 +17,7 @@ AND alianza_municipio.estado='activo' AND alianza_municipio.id_User=".$_SESSION[
     
     if(mysqli_num_rows($query) >0) { 
 
-      echo '<a href="./vivuWeb/Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa Asignados</a>';
+      echo '<a href="Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa Asignados</a>';
       $_SESSION['alianza']=2;
     } else{$_SESSION['alianza']=0;}
 

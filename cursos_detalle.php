@@ -1,39 +1,50 @@
-<?php include "conexion1.php";?>
+<?php
+session_start(); // Asegúrate de iniciar la sesión
 
-<?php include "header.php" ?>
+include "conexion1.php";
+include "header.php";
 
-<?php 
-
-
-if (isset($_GET['id'])){
-$id=$_GET['id'];
-$_SESSION['id_curso']=$id;
-
+// Verificar si 'id_curso' está en la sesión
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $_SESSION['id_curso'] = $id;
 }
 
-$id=$_SESSION['id_curso'];
+if (!isset($_SESSION['id_curso'])) {
+  die("ID de curso no definido en la sesión.");
+}
 
-$sql1 = "SELECT * FROM gestion_cursos, poa, asignar_municipios WHERE poa.id_poa=gestion_cursos.id_nombre_poa AND asignar_municipios.id=poa.id_asignar_municipios
-AND gestion_cursos.id_Gestion_Cursos=".$_SESSION['id_curso']." AND asignar_municipios.id_responsable=".$_SESSION['user_id'];
+$id = $mysqli->real_escape_string($_SESSION['id_curso']);
+
+// Verificar si 'user_id' está en la sesión
+if (!isset($_SESSION['user_id'])) {
+  die("ID de usuario no definido en la sesión.");
+}
+
+$user_id = $mysqli->real_escape_string($_SESSION['user_id']);
+
+$sql1 = "SELECT * FROM gestion_cursos, poa, asignar_municipios 
+         WHERE poa.id_poa=gestion_cursos.id_nombre_poa 
+         AND asignar_municipios.id=poa.id_asignar_municipios
+         AND gestion_cursos.id_Gestion_Cursos='$id' 
+         AND asignar_municipios.id_responsable='$user_id'";
 
 $consulta1 = $mysqli->query($sql1);
-
-$editar=false;
-
-while($row = $consulta1->fetch_object()){
-
-  if ($row->id_responsable==$_SESSION['user_id']){
-    $editar=true;
-  }
-  
-  
-  if ($_SESSION['rol']==1)
-  
-  {$editar=true;}
-  
+if (!$consulta1) {
+  die("Error en la consulta: " . $mysqli->error);
 }
 
+$editar = false;
 
+while ($row = $consulta1->fetch_object()) {
+  if ($row->id_responsable == $user_id) {
+    $editar = true;
+  }
+
+  if ($_SESSION['rol'] == 1) {
+    $editar = true;
+  }
+}
 //var_dump($_SESSION['id_poa']);
 
 ?>

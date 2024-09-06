@@ -2,14 +2,14 @@
  <section class="full-width PopUpLogin PopUpLogin-2">
   <div class="full-width">
     <a href="perfil.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Tu perfil</a>
-    <a href="./vivuWeb/Poa.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Gestion Poa</a>
+    <a href="Poa.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Gestion Poa</a>
    
-    <a href="./vivuWeb/planeacion.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Planeacion</a>
+    <a href="planeacion.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Planeacion</a>
      
     
     <?php
 
-include "./vivuWeb/conexion1.php";
+include "conexion1.php";
 
 //session_start();
 
@@ -21,7 +21,7 @@ AND alianza_municipio.estado='activo' AND alianza_municipio.id_User=".$_SESSION[
     
     if(mysqli_num_rows($query) >0) { 
 
-      echo '<a href="./vivuWeb/Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa asignados</a>';
+      echo '<a href="Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa asignados</a>';
       $_SESSION['alianza']=2;
     } else{$_SESSION['alianza']=0;}
 

@@ -1,4 +1,4 @@
-<?php include "conexion1 .php"; ?>
+<?php include "conexion1.php"; ?>
 
 <?php include "header.php" ?>
 

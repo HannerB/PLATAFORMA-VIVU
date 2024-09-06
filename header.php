@@ -101,13 +101,13 @@ if (isset($_SESSION['rol'])) {
  <section class="full-width PopUpLogin PopUpLogin-2">
   <div class="full-width">
     <a href="perfil.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Tu perfil</a>
-    <a href="./vivuWeb/Poa.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Gestion Poa</a>'; 
-    if ($_SESSION['rol']==1){echo '<a href="./vivuWeb/tablero.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Configuracion</a>';} 
-   echo ' <a href="./vivuWeb/planeacion.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Planeacion</a>
+    <a href="Poa.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Gestion Poa</a>'; 
+    if ($_SESSION['rol']==1){echo '<a href="tablero.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Configuracion</a>';} 
+   echo ' <a href="planeacion.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Planeacion</a>
      
     
     
-<a href="./vivuWeb/Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa asignados</a>    
+<a href="Poa2.php"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Otros Poa asignados</a>    
     
     <div role="separator" class="divider"></div>
     <a rel="nofollow" data-method="delete" href="logout.php">
