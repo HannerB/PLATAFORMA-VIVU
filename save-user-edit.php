@@ -23,7 +23,7 @@ if ($nombre != "") {
 		$Correo=$_POST['txtCorreo'];
 		$Telefono=$_POST['txtTelefono'];
 
-		$sql="UPDATE users SET nombres='$Nombres',apellidos='$Apellidos',sexo='$Sexo',tipodocumento='$tipoDocumento',documento='$Documento',fechaNacimiento='$Nacimiento',telefono='$Telefono',tipoPoblacion='$TipoPoblacion',municipio='$Municipio',email='$Correo',img='$destinon', tipo_archivo='$tipo' WHERE id='$Codigo'";
+		$sql="UPDATE users SET nombres='$Nombres',apellidos='$Apellidos',sexo='$Sexo',tipodocumento='$tipoDocumento	',documento='$Documento',fechaNacimiento='$Nacimiento',telefono='$Telefono',tipoPoblacion='$TipoPoblacion',municipio='$Municipio',email='$Correo',img='$destinon', tipo_archivo='$tipo' WHERE id='$Codigo'";
 
 		$stmt = $conn->prepare($sql);
 

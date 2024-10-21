@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="http://cdn.tutorialzine.com/misc/enhance/v2.js" async></script>
-  <script src="./assets/main.js"></script>
+  <script src="assets/main.js"></script>
 
   <meta name="csrf-token" content="sD0hPoBuliGFd5InGhre2tEwqBOWq5IyYKAr5Wcj/6NdVI39jnyEqFx6JUMBQiSF2YRkJZbYZjp8VUo/qVtfog==" />
-  <link rel="stylesheet" media="all" href="./assets/general.css" data-turbolinks-track="reload" />
-  <link rel="stylesheet" media="screen" href="./assets/grupos.css" />
-  <script src="./assets/general.js" data-turbolinks-track="reload"></script>
+  <link rel="stylesheet" media="all" href="assets/general.css" data-turbolinks-track="reload" />
+  <link rel="stylesheet" media="screen" href="assets/grupos.css" />
+  <script src="assets/general.js" data-turbolinks-track="reload"></script>
   <style type="text/css">
     .footer_new {
       display: flex;

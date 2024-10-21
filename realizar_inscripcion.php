@@ -155,8 +155,8 @@ if ($modo_Guardar == 1) {
         $resultado1 = $mysqli->query($sql);
     }
 
-    header('Location:' . getenv('HTTP_REFERER'));
-    //header("Location: cursosReg.php");
+    // header('Location:' . getenv('HTTP_REFERER'));
+    header("Location: cursosReg.php");
 }
 
 if ($modo_Guardar == 2) {
