@@ -27,25 +27,23 @@ if (isset($_SESSION['user_id'])) {
   }
 
   if ($_SESSION['valor'] == 1) {
-    ?>
+  ?>
     <div class="alert alert-dismissible alert-success" style="margin-top:20px;">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <span class="icon-checkmark"></span> <?php echo $_SESSION['estado']; ?>
     </div>
-    <?php
+  <?php
 
     unset($_SESSION['estado']);
-
   } elseif ($_SESSION['estado'] == !null) {
-    ?>
+  ?>
     <div class="alert alert-dismissible alert-danger" style="margin-top:20px;">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <span class="icon-checkmark"></span> <?php echo "Operacion NO Realizada :" . $_SESSION['estado']; ?>
     </div>
-    <?php
+  <?php
 
     unset($_SESSION['estado']);
-
   }
   ?>
 
@@ -150,21 +148,15 @@ if (isset($_SESSION['user_id'])) {
       if ($_SESSION['rol'] == 1) {
 
         $consulta = "SELECT * FROM asignar_municipios, poa WHERE poa.id_asignar_municipios=asignar_municipios.id ORDER BY poa.id_poa DESC";
-
       }
       if ($_SESSION['rol'] == 3) {
 
         $consulta = 'SELECT * FROM asignar_municipios, poa WHERE poa.id_asignar_municipios=asignar_municipios.id AND asignar_municipios.id_responsable=' . $id . ' AND asignar_municipios.estado="activo" ORDER BY poa.id_poa DESC';
-
-
-
       }
       if ($_SESSION['alianza'] == 1) {
 
 
         $consulta = 'SELECT * FROM alianza_municipio, poa WHERE alianza_municipio.poa_id=poa.id_poa AND alianza_municipio.estado="activo" AND alianza_municipio.id_User=' . $_SESSION['user_id'] . ' ORDER BY poa.id_poa DESC';
-
-
       }
 
 
@@ -285,12 +277,10 @@ if (isset($_SESSION['user_id'])) {
   <?php include "footer.php" ?>
 
   <script type="text/javascript">
-
-
     var busqueda = document.getElementById('buscar');
     var table = document.getElementById("tabla").tBodies[0];
 
-    buscaTabla = function () {
+    buscaTabla = function() {
       texto = busqueda.value.toLowerCase();
       var r = 0;
       while (row = table.rows[r++]) {
@@ -305,9 +295,9 @@ if (isset($_SESSION['user_id'])) {
 
 
     var a = "";
-    $(function () {
+    $(function() {
       // ON SELECTING ROW
-      $(".gfgselect").click(function () {
+      $(".gfgselect").click(function() {
         //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
         a = "";
         b = "";
@@ -363,7 +353,7 @@ if (isset($_SESSION['user_id'])) {
           '<input style="diplay:none;" hidden type="text" class="form-control" id="operacion" name="operacion" placeholder="" value="8">' +
           '<input style="diplay:none;" hidden type="text" class="form-control" id="poa_id" name="poa_id" placeholder="" value="' + a + '">'
 
-          ;
+        ;
         p += '<div class="modal-footer">' +
           '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>' +
           '<button type="submit" class="btn btn-primary">Actualizar</button>' +
@@ -381,10 +371,10 @@ if (isset($_SESSION['user_id'])) {
     function download() {
 
       axios({
-        url: 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=https://www.vivu.com.co/vivuWeB/cursosReg.php?poa=' + a + '',
-        method: 'GET',
-        responseType: 'blob'
-      })
+          url: 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=https://www.vivu.com.co/vivuWeB/cursosReg.php?poa=' + a + '',
+          method: 'GET',
+          responseType: 'blob'
+        })
         .then((response) => {
           const url = window.URL
             .createObjectURL(new Blob([response.data]));
@@ -398,9 +388,9 @@ if (isset($_SESSION['user_id'])) {
     };
 
 
-    $(function () {
+    $(function() {
       // ON SELECTING ROW
-      $(".gfgenlace").click(function () {
+      $(".gfgenlace").click(function() {
         //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
         a = "";
         a = $(this).parents("tr").find(".gfgid").text();
@@ -437,10 +427,10 @@ if (isset($_SESSION['user_id'])) {
     function download() {
 
       axios({
-        url: 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=https://www.vivu.com.co/vivuWeB/cursosReg.php?poa=' + a + '',
-        method: 'GET',
-        responseType: 'blob'
-      })
+          url: 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=https://www.vivu.com.co/vivuWeB/cursosReg.php?poa=' + a + '',
+          method: 'GET',
+          responseType: 'blob'
+        })
         .then((response) => {
           const url = window.URL
             .createObjectURL(new Blob([response.data]));
@@ -453,14 +443,16 @@ if (isset($_SESSION['user_id'])) {
         })
     }
 
-    function ocultar() { $("#ocultar").toggle(); }
+    function ocultar() {
+      $("#ocultar").toggle();
+    }
 
     $("#ocultar").toggle();
 
 
-    $(function () {
+    $(function() {
       // ON SELECTING ROW
-      $(".gfgdelete").click(function () {
+      $(".gfgdelete").click(function() {
 
         h = $(this).parents("tr").find(".gfgcursos").text();
 
@@ -539,7 +531,7 @@ if (isset($_SESSION['user_id'])) {
             '<input style="diplay:none;" hidden type="text" class="form-control" id="operacion" name="operacion" placeholder="" value="9">' +
             '<input style="diplay:none;" hidden type="text" class="form-control" id="poa_id" name="poa_id" placeholder="" value="' + a + '">'
 
-            ;
+          ;
           p += '<div class="modal-footer">' +
             '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>' +
             '<button type="submit" class="btn btn-danger">Eliminar</button>' +
@@ -558,20 +550,4 @@ if (isset($_SESSION['user_id'])) {
 
       });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </script>
